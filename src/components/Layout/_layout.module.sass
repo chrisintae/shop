@@ -1,0 +1,111 @@
+// vars
+$footer-fs: 0.875rem
+$legal-fs: 0.75rem
+
+.page-wrapper
+    display: flex
+    flex-direction: column
+
+    @media screen and (min-width: 768px)
+        display: grid
+        grid-template-columns: 200px 0.75rem 1fr
+        grid-template-areas: "header header header" "nav .content" "nav .footer"
+        gap: 20px
+        height: 100vh
+        overflow: hidden
+
+    .nav
+        display: none
+        transition: background-color 300ms ease-out
+
+        &:hover
+            background-color: #00ffcc80
+
+        @media screen and (min-width: 768px)
+            grid-area: nav
+            display: flex
+            align-items: center
+            justify-content: center
+
+        .nav-list
+            display: inline-flex
+            flex-direction: row-reverse
+            list-style: none
+            gap: 2rem
+            transform: rotate(-90deg)
+            padding-right: 0
+            padding-left: 20vh
+
+            & > li
+                font-size: $legal-fs
+                font-weight: 100
+                letter-spacing: 0.25rem
+
+                a
+                    transition: font-weight 300ms ease-out
+                    cursor: pointer
+
+                    &:hover
+                        font-weight: 600
+                        transform: scale(1.15)
+
+.content
+    @media screen and (min-width: 768px)
+        min-height: calc(100vh - 240px)
+        grid-area: content
+
+.header
+    height: 80px
+    padding: 0 1rem 1.5rem
+
+    @media screen and (min--width: 768px)
+        grid-area: header
+        display: flex
+        align-items: center
+        justify-content: center
+
+.footer
+    .footer-container
+        ul.social
+            & > li
+                text-transform: lowercase
+                letter-spacing: 0.25rem
+
+        .legal-font
+            small
+                font-size: $legal-fs
+
+            ul
+                li
+                    font-size: $legal-fs
+
+    @media screen and (min-width: 768px)
+        grid-area: footer
+        margin-top: 2rem
+        padding: 1rem
+
+    .footer-container
+        font-weight: 100
+        line-height: 1.2
+
+        ul.social
+            display: flex
+            justify-content: center
+            gap: 1.5rem
+            font-size: $legal-fs
+            list-style: none
+
+            & > li
+                text-transform: lowercase
+                letter-spacing: 0.25rem
+
+        .legal-foot
+            display: flex
+            justify-content: right
+
+            ul
+                display: inline-flex
+                gap: 1rem
+                list-style: none
+                margin: 0
+                padding-left: 1rem
